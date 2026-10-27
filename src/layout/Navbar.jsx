@@ -1,0 +1,37 @@
+import React from 'react'
+import '../styles/Navbar.css'
+import profile from '../data/profile'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+
+const Navbar = ({ homeRef, projectRef, contactRef, aboutRef }) => {
+
+  const scrollToSection = (ref) => {
+    if (ref && ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+  return (
+    <nav className='navbar'>
+
+      <div className="navbar-container">
+
+        <div className='logo'>{profile.name}</div>
+
+        <ul className='nav-links'>
+          <li onClick={() => scrollToSection(homeRef)}>Home</li>
+          <li onClick={() => scrollToSection(aboutRef)}>About</li>
+          <li onClick={() => scrollToSection(projectRef)}>Projects</li>
+          <li onClick={() => scrollToSection(contactRef)}>Contact</li>
+        </ul>
+
+        {/* <div className='nav-btn-container'>
+          <FaGithub onClick={() => window.open("https://github.com/Abhi-1806kumar")} className='nav-icon' />
+          <FaLinkedin onClick={() => window.open("https://github.com/Abhi-1806kumar")} className='nav-icon' />
+
+        </div> */}
+      </div>
+    </nav>
+  )
+}
+
+export default Navbar
